@@ -47,15 +47,27 @@ class Linklist
           }
           curr_node=curr_node.next;
         }
+
+        //To insert element in the last
+      case 3:
+            node=head;
+            while(node.next!=null)
+            {
+              node=node.next;
+            }
+            Node last_node=new Node(data);
+            node.next=last_node;
+            last_node.next=null;
+
     }
   }
 public void print()
 {
-  Node node;
-  node=head;
+  Node node=head;
+  System.out.println("Elements in link list are:\n");
   while(node.next!=null)
   {
-    System.out.println(" "+node.val);
+    System.out.print(" "+node.val);
     node=node.next;
   }
   System.out.println(" "+node.val);
