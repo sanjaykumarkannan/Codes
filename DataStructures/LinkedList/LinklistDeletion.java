@@ -1,9 +1,9 @@
 class LinklistDeletion
 {
   Node head;
-  Node prev;
+  Node prev=null;
 
-  class Node
+  static class Node
   {
     int data;
     Node next;
@@ -30,15 +30,6 @@ class LinklistDeletion
     newnode.next=ptr.next;
     ptr.next=newnode;
   }
-  public void print()
-  {
-    while(head.next!=null)
-    {
-      System.out.print(head.data+"\t");
-      head=head.next;
-    }
-      System.out.print(head.data+"\t");
-  }
   public void end(int value)
   {
     Node newnode=new Node(value);
@@ -50,10 +41,21 @@ class LinklistDeletion
     last.next=newnode;
     newnode.next=null;
   }
-  public void deletee(int value)
+  public void print()
+  {
+    Node temp=head;
+    while(temp.next!=null)
+    {
+      System.out.print(temp.data+"\t");
+      temp=temp.next;
+    }
+      System.out.print(temp.data+"\t");
+  }
+
+ public void deletee(int value)
   {
       Node temp=head;
-      if (temp != null && temp.data != value)
+      if (temp != null && temp.data == value)// when the first node has the value
           {
               head = temp.next; // Changed head
               return;
@@ -64,6 +66,9 @@ class LinklistDeletion
         prev=temp;
         temp=temp.next;
       }
+
+      if(temp==null) //when no node is present
+        return;
       prev.next=temp.next;
   }
   public static void main(String args[])
@@ -76,7 +81,7 @@ class LinklistDeletion
     System.out.println("Linklist before deletion:");
     llist.print();
     llist.deletee(45);
-    System.out.println("Linklist after deletion:");
+    System.out.println("\nLinklist after deletion:");
     llist.print();
   }
 }
