@@ -14,8 +14,9 @@ class LinklistInsertion
   public void beginning(int value)
   {
     Node newnode=new Node(value);
-    newnode.next=head;
+    Node temp=head;
     head=newnode;
+    newnode.next=temp;
   }
   public void after(int element,int value)
   {
